@@ -1,14 +1,17 @@
 package main
 
 import (
-	"testing"
+	"fmt"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestHandler(t *testing.T) {
-	matches, err := Handler(Request{
-		ID: 28,
-	})
+	result, err := Handler()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(result)
 	assert.IsType(t, nil, err)
-	assert.Equal(t, 2, len(matches))
 }

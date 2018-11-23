@@ -1,7 +1,8 @@
 #!/bin/sh
 
-LAMBDA=$1
+source .env
 
+LAMBDA=$1
 cd $LAMBDA
 
 GOOS=linux go build -o main main.go
@@ -13,7 +14,7 @@ aws lambda create-function \
   --function-name $LAMBDA \
   --zip-file fileb://./deployment.zip \
   --runtime go1.x \
-  --role arn:aws:iam::218032524214:role/lambdaExecutor \
+  --role $LAMBDA_ROLE \
   --handler main
 
 rm main deployment.zip
