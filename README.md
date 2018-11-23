@@ -1,5 +1,22 @@
 # Foosball Lambda API
 
+### CLI Helpers
+
+##### Create
+Use lambda_create.sh to create lambda function in AWS console. It takes a single parameter which can be one of:
+- CreateMatch
+- CreatePlayer
+- GetMatches
+- getPlayers
+
+Remember to update environment variables in AWS console afterwards.
+
+##### Update
+Use lambda_update.sh after each change in lambda code.
+
+##### Invoke
+Use lambda_invoke.sh to perform a live test. Check lambdas description below for more details.
+
 ### Lambdas
 
 ##### CreateMatch
@@ -56,4 +73,12 @@ Parameters:
 
 ### Database
 
-You may populate database with dump file in [sql|sql] folder.
+You may populate database with dump file in sql folder.
+
+### Configuration
+
+Copy .env.sample file to .env and update configuration parameters.
+
+### Testing
+
+Each lambda may be tested by opening its folder (ie. `cd GetPlayers`) and running `go test`.

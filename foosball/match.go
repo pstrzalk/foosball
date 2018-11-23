@@ -2,7 +2,6 @@ package foosball
 
 import (
 	"database/sql"
-	"strconv"
 )
 
 type Match struct {
@@ -25,10 +24,4 @@ func (m *Match) Save(db *sql.DB) (int, error) {
 	}
 
 	return m.Id, err
-}
-
-func (m *Match) ToString() string {
-	return strconv.Itoa(m.Scores[0].Players[0].Id) + "+" +
-		strconv.Itoa(m.Scores[0].Players[1].Id) + "=" +
-		strconv.Itoa(m.Scores[0].Score)
 }
