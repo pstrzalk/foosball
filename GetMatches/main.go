@@ -15,8 +15,8 @@ func main() {
 }
 
 type GetMatchesRequest struct {
-  PerPage int `json:"per_page"`
-	Page int `json:"page"`
+	PerPage int `json:"per_page"`
+	Page    int `json:"page"`
 }
 
 func Handler(r GetMatchesRequest) (string, error) {
@@ -30,16 +30,16 @@ func Handler(r GetMatchesRequest) (string, error) {
 }
 
 func getMatches(r GetMatchesRequest) ([]foosball.Match, error) {
-  db, err := foosball.InitDb()
+	db, err := foosball.InitDb()
 	if err != nil {
 		return nil, err
 	}
-  defer db.Close()
+	defer db.Close()
 
-	if (r.PerPage != 25 && r.PerPage != 50) {
+	if r.PerPage != 25 && r.PerPage != 50 {
 		r.PerPage = 10
 	}
-	if (r.Page < 1) {
+	if r.Page < 1 {
 		r.Page = 1
 	}
 
@@ -118,32 +118,32 @@ func getMatches(r GetMatchesRequest) ([]foosball.Match, error) {
 		}
 
 		match := foosball.Match{
-			Id:   matchId,
+			Id: matchId,
 			Scores: []foosball.Score{
 				foosball.Score{
-					Id: scoreIds[0],
+					Id:    scoreIds[0],
 					Score: scores[0],
 					Players: []foosball.Player{
 						foosball.Player{
-							Id: playerIds[0],
+							Id:   playerIds[0],
 							Name: playerNames[0],
 						},
 						foosball.Player{
-							Id: playerIds[1],
+							Id:   playerIds[1],
 							Name: playerNames[1],
 						},
 					},
 				},
 				foosball.Score{
-					Id: scoreIds[1],
+					Id:    scoreIds[1],
 					Score: scores[1],
 					Players: []foosball.Player{
 						foosball.Player{
-							Id: playerIds[2],
+							Id:   playerIds[2],
 							Name: playerNames[2],
 						},
 						foosball.Player{
-							Id: playerIds[3],
+							Id:   playerIds[3],
 							Name: playerNames[3],
 						},
 					},

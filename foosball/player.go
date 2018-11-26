@@ -5,14 +5,14 @@ import (
 )
 
 type Player struct {
-	Id int `json:"id"`
+	Id   int    `json:"id"`
 	Name string `json:"name"`
 }
 
 func (p *Player) Save(db *sql.DB) (int, error) {
-  var err error
+	var err error
 
-	if (p.Id > 0) {
+	if p.Id > 0 {
 		sqlStatement := `UPDATE players SET name = $2 WHERE id = $1`
 		_, err = db.Exec(sqlStatement, p.Id, p.Name)
 	} else {

@@ -25,11 +25,11 @@ func Handler() (string, error) {
 }
 
 func getPlayers() ([]foosball.Player, error) {
-  db, err := foosball.InitDb()
+	db, err := foosball.InitDb()
 	if err != nil {
 		return nil, err
 	}
-  defer db.Close()
+	defer db.Close()
 
 	rows, err := db.Query("SELECT id, name FROM players ORDER BY name ASC")
 	if err != nil {
