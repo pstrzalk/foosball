@@ -31,7 +31,7 @@ func getPlayers() ([]foosball.Player, error) {
 	}
   defer db.Close()
 
-	rows, err := db.Query("SELECT id, name FROM players")
+	rows, err := db.Query("SELECT id, name FROM players ORDER BY name ASC")
 	if err != nil {
 		return nil, err
 	}
