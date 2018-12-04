@@ -13,6 +13,8 @@ body {
   display: flex;
 }
 
+table.players { margin-bottom: 1em; }
+
 .pregame table th { width: 50%; }
 .pregame table th.team { width: 25% }
 .pregame table th,
