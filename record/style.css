@@ -1,0 +1,29 @@
+body {
+  padding: 0 2rem;
+  margin: 2rem;
+}
+
+.container.hidden {
+  display: none;
+}
+.game, .game.container {
+  display: none;
+}
+.game.started {
+  display: flex;
+}
+
+.pregame table th { width: 50%; }
+.pregame table th.team { width: 25% }
+.pregame table th,
+.pregame table td { text-align: center; height: 40px; }
+.pregame table td.team { background-color: #FFF; }
+.pregame table tr.odd td.team { background-color: #EFEFEF; }
+
+/* .pregame table tr.playerRow:hover { background-color: #DFDFDF; } */
+.pregame table tr.playerRow .ingame { background-color: #CCC; }
+
+.game table { text-align: center; }
+.game table .goals td { position: relative; width: 50%; }
+.game table .goals .value { font-size: 128px; padding-left: 20px; }
+.game table .goals .btn { font-size: 40px; line-height: 40px;}

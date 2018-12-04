@@ -3,3 +3,5 @@ main
 outputfile
 .env
 .DS_Store
+credentials.json
+record/node_modules
